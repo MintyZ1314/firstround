@@ -25,7 +25,7 @@ const submissions = [];
 const duplicatesSubmissions = [];
 
 app.post("/upload", upload.single("image"), async (req, res) => {
-  const LIMIT = 2;
+  const LIMIT = 48;
   const name = req.body.name.trim();
   const fileBuffer = req.file.buffer;
 
@@ -75,7 +75,7 @@ app.get("/admin", (req, res) => {
 });
 
 app.get("/admin-data", (req, res) => {
-  const totalLimit = 2;
+  const totalLimit = 48;
   const remaining = Math.max(0, totalLimit - submissions.length);
   res.json({ remaining, submissions });
 });
